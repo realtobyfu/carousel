@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+	<style type="text/css">
+		#slides-wrapper{height:300px;}
+    img {
+      max-width: 400px;
+    }
+	</style>
+</head>
+
+<body>
+	<div id='slides-wrapper'>
+		<div id='slide'>
+			<img src="images/1.jpg" />
+		</div>
+	</div>
+	<input type= "button" id="startSlides" value="Start">
+	<input type= "button" id="stopSlides" value="Stop">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    var arr = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
+    var index = 0;
+  	$(document).ready(function() {
+  		$("#startSlides").click(slideShow);
+  		$("#stopSlides").click(function()
+  			{
+  				$("#slide img").stop().fadeIn();
+  			}
+  		);
+  	})
+  	function slideShow()
+  	{
+  		$("#slide img").fadeOut(2000,nextSlide);
+  	}
+  	function nextSlide()
+  	{
+  		index++;
+  		index= index== arr.length?0: index;
+  		$("#slide img").attr("src", "images/"+arr[index]);
+  		$("#slide img").fadeIn(2000 , slideShow);
+  	}
+</script>
+
+  <!-- Javascript -->
+</body>
+
+</html>
